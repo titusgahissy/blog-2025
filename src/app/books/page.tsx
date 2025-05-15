@@ -25,7 +25,7 @@ const BookList = () => (
   </div>
 )
 
-
+/*
 const BookCard = ({ book }: { book: Book }) => (
   <div className="flex gap-4 border-b border-r  px-6 py-8 border-neutral-300">
     <div className="w-1/3 flex  relative h-44 rounded-sm overflow-hidden shadow-sm">
@@ -37,7 +37,7 @@ const BookCard = ({ book }: { book: Book }) => (
       <p className="pt-2 text-sm font-normal leading-relaxed">{book.description}</p>
     </div>
   </div >
-)
+)*/
 
 
 const BookCard2 = ({ book }: { book: Book }) => (

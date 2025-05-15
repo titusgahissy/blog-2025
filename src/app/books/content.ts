@@ -79,6 +79,4 @@ export const books: Book[] = [
     description: "This book should be mandatory reading for everyone in their 20s.",
     image: '/img/books/the-mountain-is-you.jpg'
   }
-]
-
-const sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
+].sort((a, b) => a.title.localeCompare(b.title));

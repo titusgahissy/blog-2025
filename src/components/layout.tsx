@@ -54,7 +54,7 @@ export const Author = ({ full }: AuthorProps) => (
     </div>
     {full && (
       <div className="reveal font-medium text-xl">
-        Helping teams build and ship better products.
+        Helping teams build better software products.
       </div>)}
   </div>
 );

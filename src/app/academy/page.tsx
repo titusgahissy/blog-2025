@@ -6,7 +6,7 @@ export default function Page() {
     <PageLayout wide>
       <PageHeader>
         <PageTitle>Academy</PageTitle>
-        <PageSubtitle>Helping teams build and ship better products</PageSubtitle>
+        <PageSubtitle>Helping teams build better software products</PageSubtitle>
       </PageHeader>
       <Content />
     </PageLayout>

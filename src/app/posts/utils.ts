@@ -1,6 +1,7 @@
 import { Metadata, Post } from '@/app/posts/type'
 import fs from 'fs'
 import path from 'path'
+import readingDuration from 'reading-duration'
 
 
 function parseFrontmatter(fileContent: string) {
@@ -38,11 +39,15 @@ function getMDXData(dir: string): Post[] {
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file))
     const slug = path.basename(file, path.extname(file))
-
+    const readingTime = readingDuration(content, {
+      wordsPerMinute: 100,
+      emoji: false,
+    })
     return {
       metadata,
       slug,
       content,
+      readingTime,
     }
   })
 }

@@ -15,8 +15,7 @@ const links: Link[] = [
   { href: "/about", label: "About" },
   { href: "/travel", label: "Travel" },
   { href: "/projects", label: "Projects" },
-  { href: "/books", label: "Books" },
-  { href: "https://gahissy.studio", label: "The Studio", external: true }
+  { href: "/library", label: "Library" }
 ]
 
 
@@ -34,7 +33,7 @@ export const Navbar = () => (
           <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
         </div> */}
       </div>
-      <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider font-medium">
+      <div className="flex items-center gap-5 uppercase text-xs tracking-wider font-medium">
         {links.map((link) => (
           <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
             <span>{link.label}</span>
@@ -74,10 +73,10 @@ export const LayoutFooter = () => (
         By Titus Gahissy &mdash; Lisbon, Portugal
       </div>
       <div className="flex items-center gap-5  justify-end">
-        <Link href="mailto:titus@gahissy.com">Email</Link>
-        <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
-        <Link href="https://github.com/titusgahissy">Github</Link>
-        <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
+        <Link href="mailto:titus@gahissy.com" target="_blank">Email</Link>
+        <Link href="https://www.linkedin.com/in/gahissy/" target="_blank">LinkedIn</Link>
+        <Link href="https://github.com/titusgahissy" target="_blank">Github</Link>
+        <Link href="https://www.instagram.com/titusgahissy" target="_blank">Instagram</Link>
       </div>
     </Container>
   </footer>
@@ -121,9 +120,9 @@ interface PageTitleProps {
 }
 
 export const PageTitle = ({ children, prepend }: PageTitleProps) => (
-  <div className="pt-16 space-y-0 text-center">
+  <div className="py-16 flex flex-col gap-4">
     {prepend}
-    <h1 className="font-heading title !font-medium text-6xl tracking-tight txt-center !m-0  leading-tight">
+    <h1 className="text-8xl font-heading uppercase font-black">
       {children}
     </h1>
   </div>

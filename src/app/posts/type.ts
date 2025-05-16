@@ -13,6 +13,7 @@ export type Post = {
   }
   slug: string
   content: string
+  readingTime: string
 }
 
 export type Metadata = {

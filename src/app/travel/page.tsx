@@ -5,7 +5,7 @@ import { Album } from "./album";
 export default function Page() {
   return (
     <Container>
-      <PageTitle>Documenting travels and street moments</PageTitle>
+      <PageTitle className="w-1/2">Documenting travels<br />& street moments</PageTitle>
       <PageSubtitle>Documenting travels and street moments</PageSubtitle>
       <Albums />
     </Container>

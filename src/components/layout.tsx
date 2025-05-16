@@ -106,6 +106,7 @@ interface PageTitleProps {
   className?: string
 }
 
+
 export const PageTitle = ({ children, prepend, className }: PageTitleProps) => (
   <div className={cn("py-16 flex flex-col gap-4", className)}>
     {prepend}
@@ -116,7 +117,7 @@ export const PageTitle = ({ children, prepend, className }: PageTitleProps) => (
 )
 
 export const PageSubtitle = ({ children }: { children: React.ReactNode }) => (
-  <div className="text-2xl py-2 text-center">
+  <div className="text-2xl py-2">
     {children}
   </div>
 )

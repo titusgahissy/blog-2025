@@ -18,7 +18,7 @@ export const Album = ({ images, album, title, description }: Props) => {
   const basePath = `/img/photography/${album}`;
   return (
     <div>
-      <button className="cursor-pointer py-4 flex w-full justify-between items-center" onClick={() => setOpen(!open)}>
+      <button className={cn("cursor-pointer py-4 text-neutral-500 hover:text-black flex w-full justify-between items-center ease-linear transition-all duration-300", open ? "text-black" : "")} onClick={() => setOpen(!open)}>
         <div className="flex flex-col gap-2 text-left">
           <h2 className="text-7xl font-heading">{title}</h2>
           <div className="text-2xl text-neutral-700">{description}</div>

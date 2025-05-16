@@ -25,7 +25,8 @@ export const Navbar = () => (
       <nav className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
-            <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7" />
+            <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
+            <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
           </Link>
           {/* <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider">
           <Link href="mailto:titus@gahissy.com">Email</Link>

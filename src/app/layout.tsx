@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", bodyFont.variable, headingFont.variable, bodyFont.className)}>
+      <body className={cn("antialiased", bodyFont.variable, headingFont.variable, bodyFont.className, "pt-28")}>
         <ThemeProvider>
           <Navbar />
           <main>

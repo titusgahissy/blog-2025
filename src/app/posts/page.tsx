@@ -5,7 +5,7 @@ import { BlogPosts } from "./container";
 export default function Page() {
   return (
     <Container>
-      <PageTitle>Sharing thoughts</PageTitle>
+      <PageTitle>I share, therefore I exist</PageTitle>
       <BlogPosts />
     </Container>
   )

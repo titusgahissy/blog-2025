@@ -20,32 +20,34 @@ const links: Link[] = [
 
 
 export const Navbar = () => (
-  <Container>
-    <nav className="flex items-center justify-between py-12 ">
-      <div className="flex items-center gap-4">
-        <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
-          <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7" />
-        </Link>
-        {/* <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider">
+  <div className="fixed top-0 left-0 right-0 z-50 pt-8 ">
+    <Container>
+      <nav className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
+            <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7" />
+          </Link>
+          {/* <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider">
           <Link href="mailto:titus@gahissy.com">Email</Link>
           <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
           <Link href="https://github.com/titusgahissy">Github</Link>
           <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
         </div> */}
-      </div>
-      <div className="flex items-center gap-5 uppercase text-xs tracking-wider font-medium">
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
-            <span>{link.label}</span>
-            {link.external && <span className="text-[0.6rem]">↗</span>}
-          </Link>
-        ))}
-        <div className="pl-2">
-          <ThemeSwitcher />
         </div>
-      </div>
-    </nav>
-  </Container>
+        <div className="flex items-center gap-5 uppercase text-xs tracking-wider font-semibold">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
+              <span>{link.label}</span>
+              {link.external && <span className="text-[0.6rem]">↗</span>}
+            </Link>
+          ))}
+          <div className="pl-2">
+            <ThemeSwitcher />
+          </div>
+        </div>
+      </nav>
+    </Container>
+  </div>
 );
 
 
@@ -135,7 +137,7 @@ export const PageSubtitle = ({ children }: { children: React.ReactNode }) => (
 )
 
 export const Article = ({ children }: { children: React.ReactNode }) => (
-  <div className="prose w-full prose-h2:pt-8 prose-h2:m-0 prose-h2:pb-4 prose-headings:font-semibold  dark:prose-headings:text-white">
+  <div className="prose-lg prose-h2:pt-8 !max-w-none prose-h2:m-0 prose-h2:pb-4 prose-headings:font-semibold  dark:prose-headings:text-white">
     <article className="font-normal text-black dark:text-white pt-4 ">
       {children}
     </article>

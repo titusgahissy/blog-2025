@@ -1,7 +1,7 @@
 import { PostSlug } from '@/app/posts/type'
 import { formatDate, getBlogPosts } from '@/app/posts/utils'
 import { baseUrl } from '@/app/sitemap'
-import { PageTitle } from '@/components/layout'
+import { Article, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -65,9 +65,9 @@ export async function generateMetadata({ params }: PageParams) {
 
 
 const BlogLink = (
-  <Link href="/" className="flex items-center font-medium justify-center text-sm gap-2 no-underline text-neutral-600">
+  <Link href="/posts" className="flex items-center font-medium justify-center text-sm gap-2 no-underline text-neutral-600">
     <ArrowLeft className="size-4" />
-    <span>Blog</span>
+    <span>Back to all posts</span>
   </Link>
 )
 
@@ -104,7 +104,7 @@ export default async function Blog({ params }: PageParams) {
           }),
         }}
       />
-      <div className='text-center border-b border-neutral-300  pb-4'>
+      <div className='text-center  pb-4'>
         <PageTitle prepend={BlogLink}>
           {post.metadata.title}
         </PageTitle>
@@ -114,9 +114,11 @@ export default async function Blog({ params }: PageParams) {
           </p>
         </div>
       </div>
-      <article className='font-normal text-black dark:text-white pt-4 '>
-        <MDXRemote source={post.content} />
-      </article>
+      <div className='container max-w-3xl mx-auto pb-16 font-medium'>
+        <Article>
+          <MDXRemote source={post.content} />
+        </Article>
+      </div>
     </>
   )
 }

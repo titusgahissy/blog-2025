@@ -18,7 +18,7 @@ export default function Page() {
 
 
 const BookList = () => (
-  <div className="grid grid-cols-4  mt-12 border-l border-t border-neutral-300 relative">
+  <div className="grid grid-cols-4  mt-12 border-l border-t border-neutral-300 dark:border-neutral-700 relative">
     <PlusIcon className="text-neutral-500 size-7 absolute top-0 left-0 -translate-x-3.5 -translate-y-3.5" strokeWidth={1} />
     {resources.map((book) => (
       <ResourceCard key={book.title} book={book} />
@@ -42,7 +42,7 @@ const BookCard = ({ book }: { book: Book }) => (
 
 
 const ResourceCard = ({ book }: { book: Book }) => (
-  <div className="flex flex-col gap-4 border-b border-r px-6 py-8 border-neutral-300">
+  <div className="flex flex-col gap-4 border-b border-r px-6 py-8 border-neutral-300 dark:border-neutral-700">
     <div className="relative  overflow-hidden shadow-sm h-96">
       <Image src={book.image} alt={book.title} fill className="object-cover object-top" />
     </div>

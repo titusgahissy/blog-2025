@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeSwitcher } from "./theme";
-
 const links = [
   { href: "/", label: "Blog" },
   { href: "/travel", label: "Travel" },
@@ -24,21 +23,29 @@ export const LayoutHeader = () => (
 );
 
 export const Navbar = () => (
-  <nav className="flex items-center justify-between py-8 max-w-6xl mx-auto px-12">
-    <Link href="/" className="rounded-full overflow-hidden size-16 p-1 border-2 border-neutral-400 ">
-      <Image src="/img/titus.png" alt="Titus Gahissy" width={40} height={40} className="w-auto size-full" />
-    </Link>
-    <div className="flex items-center gap-4">
-      <div className="flex items-center gap-4 font-medium">
+  <Container>
+    <nav className="flex items-center justify-between py-12 ">
+      <div className="flex items-center gap-4">
+        <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
+          <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-6" />
+        </Link>
+        <div className="flex items-center gap-4 text-base font-medium ">
+          <Link href="mailto:titus@gahissy.com">Email</Link>
+          <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
+          <Link href="https://github.com/titusgahissy">Github</Link>
+          <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
+        </div>
+      </div>
+      <div className="flex items-center gap-4 font-medium ">
         {links.map((link) => (
           <Link key={link.href} href={link.href}>{link.label}</Link>
         ))}
+        <div className="pl-2">
+          <ThemeSwitcher />
+        </div>
       </div>
-      <div>
-        <ThemeSwitcher />
-      </div>
-    </div>
-  </nav>
+    </nav>
+  </Container>
 );
 
 
@@ -60,11 +67,11 @@ export const Author = ({ full }: AuthorProps) => (
 );
 
 export const LayoutFooter = () => (
-  <footer className="pt-24 pb-8 max-w-3xl mx-auto px-12">
-    <div className="text-base text-center">
+  <Container>
+    <footer className="pt-24 pb-8">
       All rights reserved &copy; Titus Gahissy {new Date().getFullYear()}
-    </div>
-  </footer>
+    </footer>
+  </Container>
 );
 
 
@@ -80,8 +87,13 @@ export const PageLayout = ({ children, className, wide }: PageLayoutProps) => (
   </div>
 )
 
-export const Container = ({ children, className, wide }: PageLayoutProps) => (
-  <div className={cn(" mx-auto ", wide ? "max-w-7xl" : "max-w-3xl px-12", className)}>
+interface ContainerProps {
+  children: React.ReactNode
+  className?: string
+}
+
+export const Container = ({ children, className }: ContainerProps) => (
+  <div className={cn("mx-auto px-24", className)}>
     {children}
   </div>
 )

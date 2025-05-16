@@ -16,7 +16,19 @@ const bodyFont = localFont({
   src: [
     {
       path: '../../public/fonts/satoshi/Satoshi-Variable.woff2',
-      weight: '300 700',
+      weight: '300 900',
+      style: 'normal',
+    }
+  ],
+})
+
+
+const headingFont = localFont({
+  variable: '--font-heading',
+  src: [
+    {
+      path: '../../public/fonts/acumin-pro/med.woff2',
+      weight: '500',
       style: 'normal',
     }
   ],
@@ -29,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(bodyFont.variable, bodyFont.className)}>
+      <body className={cn(bodyFont.variable, headingFont.variable, bodyFont.className)}>
         <ThemeProvider>
           <Navbar />
           <main>

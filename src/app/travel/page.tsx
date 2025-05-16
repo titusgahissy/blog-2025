@@ -10,8 +10,8 @@ export default function Page() {
         <PageSubtitle>
           A visual journal of places visited and moments <br />that caught my eye as I move through the world.<br />
         </PageSubtitle>
-        <div className="absolute top-0 right-0 pt-0">
-          <Image src="/img/sections/leica.jpg" alt="Camera" width={1000} height={750} className="w-96 h-auto" />
+        <div className="absolute top-0 right-0 pt-8">
+          <Image src="/img/sections/travel.svg" alt="Camera" width={800} height={800} className="w-64 h-auto" />
         </div>
       </PageHeader>
       <Albums />

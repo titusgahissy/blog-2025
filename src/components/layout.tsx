@@ -2,24 +2,23 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeSwitcher } from "./theme";
-const links = [
+
+
+interface Link {
+  href: string
+  label: string
+  external?: boolean
+}
+
+const links: Link[] = [
   { href: "/posts", label: "Journal" },
   { href: "/about", label: "About" },
   { href: "/travel", label: "Travel" },
   { href: "/projects", label: "Projects" },
-  { href: "/books", label: "Books" }
+  { href: "/books", label: "Books" },
+  { href: "https://gahissy.studio", label: "The Studio", external: true }
 ]
 
-export const LayoutHeader = () => (
-  <div className="flex flex-col items-center justify-center text-center">
-    <nav className="flex items-center gap-2 pt-8 text-neutral-600 text-sm">
-      {links.map((link) => (
-        <Link key={link.href} href={link.href}>{link.label}</Link>
-      ))}
-    </nav>
-    <Author />
-  </div>
-);
 
 export const Navbar = () => (
   <Container>
@@ -28,16 +27,19 @@ export const Navbar = () => (
         <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
           <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7" />
         </Link>
-        <div className="flex items-center gap-4 text-base font-medium ">
+        {/* <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider">
           <Link href="mailto:titus@gahissy.com">Email</Link>
           <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
           <Link href="https://github.com/titusgahissy">Github</Link>
           <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
-        </div>
+        </div> */}
       </div>
-      <div className="flex items-center gap-4 font-medium ">
+      <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider font-medium">
         {links.map((link) => (
-          <Link key={link.href} href={link.href}>{link.label}</Link>
+          <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
+            <span>{link.label}</span>
+            {link.external && <span className="text-[0.6rem]">↗</span>}
+          </Link>
         ))}
         <div className="pl-2">
           <ThemeSwitcher />
@@ -66,11 +68,20 @@ export const Author = ({ full }: AuthorProps) => (
 );
 
 export const LayoutFooter = () => (
-  <Container>
-    <footer className="pt-24 pb-8 fixed bottom-0 text-sm">
-      By Titus Gahissy &mdash; Lisbon, Portugal
-    </footer>
-  </Container>
+  <footer className="pt-24 pb-8 fixed bottom-0 left-0 right-0 text-sm ">
+    <Container className="flex justify-between">
+      <div className="">
+        By Titus Gahissy &mdash; Lisbon, Portugal
+      </div>
+      <div className="flex items-center gap-5  justify-end">
+        <Link href="mailto:titus@gahissy.com">Email</Link>
+        <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
+        <Link href="https://github.com/titusgahissy">Github</Link>
+        <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
+      </div>
+    </Container>
+  </footer>
+
 );
 
 

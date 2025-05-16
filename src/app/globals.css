@@ -130,5 +130,6 @@ article hr {
 
   body {
     @apply bg-background text-foreground;
+    font-weight: 400;
   }
 }

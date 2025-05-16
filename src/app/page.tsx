@@ -8,7 +8,7 @@ export default function Home() {
       <div className="text-5xl/14 font-normal pt-4">
         Hello, I'm <span className="text-accent">Titus Gahissy</span>.<br />I explore bold ideas and help teams<br />create better and impactful products.
       </div>
-      <div className="text-2xl pt-8 w-2/5">
+      <div className="text-2xl pt-4 w-2/5">
         This is my little corner of the internet where I share thoughts, travel moments, books and projects.
       </div>
       <div className="py-20  gap-2 flex-col hidden">

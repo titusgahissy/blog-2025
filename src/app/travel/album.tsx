@@ -20,7 +20,7 @@ export const Album = ({ images, album, title, description }: Props) => {
         <div className="pt-2 text-2xl text-neutral-700">{description}</div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-3 gap-1 ">
         {imagesArray.map((image) => (
           <div key={image} className="relative h-132">
             <Image src={`${basePath}/${image}.jpeg`}

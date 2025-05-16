@@ -1,6 +1,6 @@
 import { Container, PageHeader, PageSubtitle, PageTitle } from "@/components/layout";
+import Image from "next/image";
 import { Album } from "./album";
-
 
 export default function Page() {
   return (
@@ -10,6 +10,9 @@ export default function Page() {
         <PageSubtitle>
           A visual journal of places visited and moments <br />that caught my eye as I move through the world.<br />
         </PageSubtitle>
+        <div className="absolute top-0 right-0 pt-0">
+          <Image src="/img/sections/leica.jpg" alt="Camera" width={1000} height={750} className="w-96 h-auto" />
+        </div>
       </PageHeader>
       <Albums />
     </Container>

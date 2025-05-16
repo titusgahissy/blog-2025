@@ -5,6 +5,7 @@ export interface Book {
   author: string
   description: string
   image: string
+  url?: string
 }
 
 
@@ -78,5 +79,40 @@ export const books: Book[] = [
     author: 'Brianna Wiest',
     description: "This book should be mandatory reading for everyone in their 20s.",
     image: '/img/books/the-mountain-is-you.jpg'
+  },
+  {
+    id: 'steve-jobs-archive',
+    title: 'The Steve Jobs Archive',
+    author: 'Steve Jobs Archive',
+    kind: 'resource',
+    description: "The authoritative home for Steve’s story and a resource for new generations eager to make their own mark.",
+    image: '/img/resources/steve-jobs-archive.jpg',
+    url: 'https://stevejobsarchive.com'
+
+  },
+  {
+    id: 'how-to-sell-a-project',
+    title: 'How to Sell a Project',
+    author: 'Chris Frantz',
+    kind: 'resource',
+    description: "Guide to selling a startup, from valuation and negotiation to closing the deal.",
+    image: '/img/resources/how-to-sell-startup.jpg',
+    url: 'https://chrisfrantz.com/how-to-sell-a-project'
+  },
+  {
+    id: 'stop-trying-to-raise-successful-kids',
+    title: 'Stop Trying to Raise Successful Kids',
+    author: ' Adam Grant & Allison Sweet Grant',
+    kind: 'resource',
+    description: "And start raising kind ones.",
+    image: '/img/resources/stop-trying-to-raissuccessful-kids.png',
+    url: 'https://www.theatlantic.com/magazine/archive/2019/12/stop-trying-to-raise-successful-kids/600751/'
+  },
+  {
+    id: 'never-split-the-difference',
+    title: 'Never Split the Difference',
+    author: 'Chris Voss, Tahl Raz',
+    description: "Negotiating As If Your Life Depended On It.",
+    image: '/img/books/never-split-the-difference.webp'
   }
 ].sort((a, b) => a.title.localeCompare(b.title));

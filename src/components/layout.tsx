@@ -95,7 +95,7 @@ export const Container = ({ children, className }: ContainerProps) => (
 
 
 export const PageHeader = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={cn("py-16", className)}>
+  <div className={cn("relative py-16", className)}>
     {children}
   </div>
 )

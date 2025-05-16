@@ -42,13 +42,13 @@ const BookCard = ({ book }: { book: Book }) => (
 
 const BookCard2 = ({ book }: { book: Book }) => (
   <div className="flex flex-col gap-4 border-b border-r px-6 py-8 border-neutral-300">
-    <div className="relative rounded-lg overflow-hidden shadow-sm h-96">
+    <div className="relative  overflow-hidden shadow-sm h-96">
       <Image src={book.image} alt={book.title} fill className="object-cover object-top" />
     </div>
     <div >
-      <h3 className="font-heading font-semibold text-lg leading-tight">{book.title}</h3>
+      <h3 className="font-heading font-semibold text-[1.8rem]">{book.title}</h3>
       <div>{book.author}</div>
-      <p className="pt-2 text-sm font-normal leading-relaxed">{book.description}</p>
+      <p className="pt-2 text-sm font-medium leading-relaxed">{book.description}</p>
     </div>
   </div >
 )

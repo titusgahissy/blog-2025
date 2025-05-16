@@ -95,7 +95,7 @@ export const Container = ({ children, className }: ContainerProps) => (
 
 
 export const PageHeader = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={cn("max-w-3xl mx-auto px-12", className)}>
+  <div className={cn("py-16", className)}>
     {children}
   </div>
 )
@@ -108,16 +108,16 @@ interface PageTitleProps {
 
 
 export const PageTitle = ({ children, prepend, className }: PageTitleProps) => (
-  <div className={cn("py-16 flex flex-col gap-4", className)}>
+  <div className={cn("flex flex-col gap-4", className)}>
     {prepend}
-    <h1 className="text-8xl font-heading uppercase font-black">
+    <h1 className="text-8xl font-heading uppercase font-bold">
       {children}
     </h1>
   </div>
 )
 
 export const PageSubtitle = ({ children }: { children: React.ReactNode }) => (
-  <div className="text-2xl py-2">
+  <div className="text-3xl py-2">
     {children}
   </div>
 )

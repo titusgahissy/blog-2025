@@ -26,7 +26,7 @@ const Albums = () => (
     <Album album="turkey" title="Turkey" description="Turkey" images="4,5,7,8,9,10,11,12,13,14,16,6,17,18,19" />
     <Album album="colombia" title="Colombia" description="Cartagena" images="3,7,8,4,9,10,12,13,14,16,17,19,20,22,23,24,25,26,28,29,30" />
     <Album album="ecuador" title="Ecuador" description="Quito and more" images="4,2,3,1,6,18,16,14,30,8,19,12,17,20,11,24,25,27" />
-    <Album album="japan" title="Japan" description="Osaka, Kyoto, Tokyo" images="2,6,7,8,9,10,12,13,16,14,15,18,19,20,21,22,23,24,11,27,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,49,51,46,53,54,55,56,57,58,59,60,61,62,68,64,66,67" />
+    <Album album="japan" title="Japan" description="Osaka, Kyoto, Tokyo" images="2,6,7,8,9,10,12,13,16,14,15,18,19,20,21,22,23,24,11,27,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,49,51,46,53,54,55,56,57,58,59,61,62,68,64,66,67" />
     <Album album="france" title="France" description="Colmart" images="1,2,3" />
     <Album album="morocco" title="Morocco" description="Essaouira" images="1,2,3,4" />
     <Album album="usa" title="USA" description="San Francisco" images="1,2,3,4,5,7,9,10,11,12,13,14,15,16,17" />

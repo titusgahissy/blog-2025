@@ -30,7 +30,7 @@ export const Album = ({ images, album, title, description }: Props) => {
               fill
               className="object-cover object-center" />
             <div className="absolute inset-0 bg-black/10" />
-            <div className="absolute bottom-0 left-0 bg-black text-white text-sm p-2">
+            <div className="absolute bottom-0 left-0 bg-black text-white text-xs p-1.5">
               {image}
             </div>
           </div>

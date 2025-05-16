@@ -1,10 +1,11 @@
-import { LayoutFooter, Navbar } from "@/components/layout";
+import "./globals.css";
+
+import { LayoutFooter } from "@/components/footer";
+import { Navbar } from "@/components/layout";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import { ThemeProvider } from "./providers";
-
 export const metadata: Metadata = {
   title: "Titus Gahissy",
   description: "Titus Gahissy",

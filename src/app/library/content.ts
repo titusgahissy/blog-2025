@@ -96,7 +96,7 @@ export const books: Book[] = [
     author: 'Chris Frantz',
     kind: 'resource',
     description: "Guide to selling a startup, from valuation and negotiation to closing the deal.",
-    image: '/img/resources/how-to-sell-startup.jpg',
+    image: '/img/resources/how-to-sell-startup-2.jpg',
     url: 'https://chrisfrantz.com/how-to-sell-a-project'
   },
   {

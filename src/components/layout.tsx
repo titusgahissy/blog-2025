@@ -3,12 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ThemeSwitcher } from "./theme";
 const links = [
-  { href: "/", label: "Blog" },
+  { href: "/posts", label: "Journal" },
+  { href: "/about", label: "About" },
   { href: "/travel", label: "Travel" },
-  { href: "/academy", label: "Academy" },
-  { href: "/books", label: "Books" },
-  //{ href: "/chats", label: "Chats" },
-  { href: "/contact", label: "Contact" },
+  { href: "/projects", label: "Projects" },
+  { href: "/books", label: "Books" }
 ]
 
 export const LayoutHeader = () => (
@@ -27,7 +26,7 @@ export const Navbar = () => (
     <nav className="flex items-center justify-between py-12 ">
       <div className="flex items-center gap-4">
         <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
-          <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-6" />
+          <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7" />
         </Link>
         <div className="flex items-center gap-4 text-base font-medium ">
           <Link href="mailto:titus@gahissy.com">Email</Link>
@@ -68,8 +67,8 @@ export const Author = ({ full }: AuthorProps) => (
 
 export const LayoutFooter = () => (
   <Container>
-    <footer className="pt-24 pb-8">
-      All rights reserved &copy; Titus Gahissy {new Date().getFullYear()}
+    <footer className="pt-24 pb-8 fixed bottom-0 text-sm">
+      By Titus Gahissy &mdash; Lisbon, Portugal
     </footer>
   </Container>
 );

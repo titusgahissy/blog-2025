@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <Container>
       <PageHeader>
-        <PageTitle>Ventures and partnership<br />with early-stage startups</PageTitle>
+        <PageTitle>Selected Projects<br />and Ventures</PageTitle>
         <PageSubtitle>Exploring some ideas and investing in impactful projects.</PageSubtitle>
       </PageHeader>
       <Projects />

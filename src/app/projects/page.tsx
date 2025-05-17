@@ -64,7 +64,7 @@ const Projects = () => {
           <div className="pt-12">
             <h2 className="text-xl uppercase font-bold tracking-wider">{entry.metadata.title}</h2>
             <div className="pb-2 text-lg  font-medium">{entry.metadata.summary}</div>
-            <div className="pt-4 text-base pr-12 prose prose-p:!my-2.5">
+            <div className="pt-4 text-base prose prose-p:!my-2.5">
               <MDXRemote source={entry.content} />
             </div>
             <div className="pt-4">

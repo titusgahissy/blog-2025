@@ -1,11 +1,13 @@
-import { Container, PageTitle } from "@/components/layout";
+import { Container, PageHeader, PageTitle } from "@/components/layout";
 import { BlogPosts } from "./container";
 
 
 export default function Page() {
   return (
     <Container>
-      <PageTitle>I share, therefore I exist</PageTitle>
+      <PageHeader>
+        <PageTitle>I share,<br />therefore I exist</PageTitle>
+      </PageHeader>
       <BlogPosts />
     </Container>
   )

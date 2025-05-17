@@ -1,5 +1,4 @@
 import { Container, PageHeader, PageSubtitle, PageTitle } from "@/components/layout";
-import Image from "next/image";
 import { Album } from "./album";
 
 export default function Page() {
@@ -10,9 +9,6 @@ export default function Page() {
         <PageSubtitle>
           A visual journal of places visited and moments <br />that caught my eye as I move through the world.<br />
         </PageSubtitle>
-        <div className="absolute top-0 right-0 pt-8">
-          <Image src="/img/sections/travel.svg" alt="Camera" width={800} height={800} className="w-64 h-auto" />
-        </div>
       </PageHeader>
       <Albums />
     </Container>

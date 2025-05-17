@@ -1,20 +1,23 @@
-import { Article, Container, PageHeader, PageLayout, PageSubtitle, PageTitle } from "@/components/layout";
+import { getProjects } from "@/app/posts/utils";
+import { Article, Container, PageHeader, PageSubtitle, PageTitle } from "@/components/layout";
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <PageLayout wide>
+    <Container>
       <PageHeader>
-        <PageTitle>Academy</PageTitle>
-        <PageSubtitle>Helping teams build better software products</PageSubtitle>
+        <PageTitle>Ventures and partnership<br />with early-stage startups</PageTitle>
+        <PageSubtitle>Exploring some ideas and investing in impactful projects.</PageSubtitle>
       </PageHeader>
-      <Content />
-    </PageLayout>
+      <Projects />
+    </Container>
   )
 }
 
 
-const Content = () => (
+const Academy = () => (
   <div className="mx-auto max-w-6xl pt-24">
 
     <Container>
@@ -48,3 +51,33 @@ const Content = () => (
 
   </div>
 )
+
+const Projects = () => {
+  const entries = getProjects()
+  return (
+    <div className="grid grid-cols-2 gap-16 pt12">
+      {entries.map((entry) => (
+        <div key={entry.slug} className="flex flex-col py-12">
+          <div className="relative h-96">
+            <Image src={entry.metadata.image!} alt={entry.metadata.title} fill className="object-cover" />
+          </div>
+          <div className="pt-12">
+            <h2 className="text-xl uppercase font-bold tracking-wider">{entry.metadata.title}</h2>
+            <div className="pb-2 text-lg  font-medium">{entry.metadata.summary}</div>
+            <div className="pt-4 text-base pr-12 prose prose-p:!my-2.5">
+              <MDXRemote source={entry.content} />
+            </div>
+            <div className="pt-4">
+              <Link href={entry.metadata.url!} target="_blank" className="text-xl font-semibold text-accent flex items-center gap-1">
+                <span>{entry.metadata.url!.replace("https://", "")}</span>
+                <span className="text-[0.8rem]">↗</span>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  )
+}

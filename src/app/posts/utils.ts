@@ -56,6 +56,10 @@ export function getBlogPosts(): Post[] {
   return getMDXData(path.join(process.cwd(), 'src', 'content'))
 }
 
+export function getProjects(): Post[] {
+  return getMDXData(path.join(process.cwd(), 'src', 'content', 'projects'))
+}
+
 
 export function formatDateShort(date: string) {
   const targetDate = new Date(date)

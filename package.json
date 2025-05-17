@@ -18,8 +18,6 @@
     "lucide-react": "^0.510.0",
     "next": "15.3.2",
     "next-mdx-remote": "^5.0.0",
-    "nextra": "^4.2.17",
-    "nextra-theme-blog": "^4.2.17",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "reading-duration": "^1.1.2",

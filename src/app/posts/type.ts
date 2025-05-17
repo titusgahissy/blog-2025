@@ -8,6 +8,8 @@ export type Post = {
     publishedAt: string
     summary: string
     image?: string
+    logo?: string
+    url?: string
     category?: string
     tags?: string
   }

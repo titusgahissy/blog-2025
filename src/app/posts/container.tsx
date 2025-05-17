@@ -34,9 +34,11 @@ export function BlogPosts() {
                 </div>
                 <Link href={`/posts/${post.slug}`} className="flex items-center justify-between hover:text-accent ease-in-out duration-300 transition-colors">
                   <h2 className='font-normal text-5xl py-2'>{post.metadata.title}</h2>
-                  <span className='bg-black/5 px-3 text-2xl rounded py-2 uppercase'>
-                    {formatDateShort(post.metadata.publishedAt)}
-                  </span>
+                  <div className='flex items-center gap-4'>
+                    <span className='bg-black/5 px-4 text-2xl rounded py-2 uppercase'>
+                      {formatDateShort(post.metadata.publishedAt)}
+                    </span>
+                  </div>
                 </Link>
               </div>
             ))}

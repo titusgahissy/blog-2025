@@ -133,3 +133,22 @@ article hr {
     font-weight: 400;
   }
 }
+
+.prose ol>li,
+.prose ul>li,
+.prose-lg ol>li,
+.prose-lg ul>li {
+  @apply !my-1;
+}
+
+.prose-lg h2 {
+  @apply tracking-tight;
+}
+
+.prose h2 {
+  @apply text-2xl/7 tracking-tight;
+}
+
+.prose h3 {
+  @apply text-lg tracking-tight;
+}

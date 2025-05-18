@@ -5,7 +5,7 @@ import { Article, Container, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -119,16 +119,28 @@ export default async function Blog({ params }: PageParams) {
           </div>
         </div>
         {metadata.image && (
-          <div className='container max-w-4xl mx-auto pb-16 font-medium'>
+          <div className='container max-w-5xl mx-auto pt-4'>
             <Image src={metadata.image} alt={metadata.title} width={1000} height={1000} />
           </div>
         )}
         <div className='container max-w-3xl mx-auto pb-16 font-medium'>
           <Article>
-            <MDXRemote source={content} />
+            <MDXRemote source={content} components={components} />
           </Article>
         </div>
       </Container>
     </>
   )
+}
+
+const components = {
+  img: (props: ImageProps) => (
+    <Image
+      sizes="100vw"
+      width={1000}
+      height={700}
+      style={{ width: '100% ', height: 'auto' }}
+      {...(props as ImageProps)}
+    />
+  ),
 }

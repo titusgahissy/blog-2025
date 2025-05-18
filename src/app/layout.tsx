@@ -5,16 +5,9 @@ import { Navbar } from "@/components/navbar";
 import { baseUrl, siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Analytics } from '@vercel/analytics/next';
-import type { Metadata } from "next";
 import { Bebas_Neue } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./providers";
-
-
-export const metadata: Metadata = {
-  title: "Titus Gahissy",
-  description: "Titus Gahissy",
-};
 
 
 const bodyFont = localFont({
@@ -35,18 +28,6 @@ const headingFont = Bebas_Neue(
     variable: '--font-heading',
   }
 )
-
-/*
-const headingFont = localFont({
-  variable: '--font-heading',
-  src: [
-    {
-      path: '../../public/fonts/acumin-pro/med.woff2',
-      weight: '500',
-      style: 'normal',
-    }
-  ],
-})*/
 
 export interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>

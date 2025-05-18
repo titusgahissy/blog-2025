@@ -3,9 +3,12 @@ import "./globals.css";
 import { LayoutFooter } from "@/components/footer";
 import { Navbar } from "@/components/layout";
 import { cn } from "@/lib/utils";
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./providers";
+
+
 export const metadata: Metadata = {
   title: "Titus Gahissy",
   description: "Titus Gahissy",
@@ -50,6 +53,7 @@ export default function RootLayout({
           </main>
           <LayoutFooter />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

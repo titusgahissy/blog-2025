@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /
+Disallow: /_next/
+Disallow: /img/
+Disallow: /favicon.co
+
+Sitemap: https://titusgahissy.com/sitemap.xml

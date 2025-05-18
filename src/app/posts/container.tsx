@@ -24,7 +24,7 @@ export function BlogPosts() {
     <>
       {Object.entries(entriesByYear).map(([year, posts]) => (
         <div key={year}>
-          <div className="text-6xl font-heading font-bold mb-4">{year}</div>
+          <div className="text-6xl font-heading font-medium mb-4">{year}</div>
           <div className="flex flex-col divide-y divide-neutral-300 dark:divide-neutral-700">
             {posts.map((post) => (
               <div key={post.slug} className='py-6 text-lg justify-between items-center '>

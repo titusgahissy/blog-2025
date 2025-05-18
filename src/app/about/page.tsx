@@ -81,7 +81,7 @@ const Photography = () => {
           <Image src="/img/about/camera.webp" alt="camera" fill className="object-cover grayscale" />
         </div>
         <div className="prose-lg prose-p:my-2">
-          <h2 className="text-6xl font-bold pt-8 uppercase font-heading mb-8">
+          <h2 className="text-6xl font-medium pt-8 uppercase font-heading mb-8">
             Photography
           </h2>
           <div>
@@ -109,7 +109,7 @@ const Cycling = () => {
         <Image src="/img/about/cycling-02.jpg" alt="Bike" fill className="object-cover grayscale" />
       </div>
       <div className="prose-lg prose-p:my-2">
-        <h2 className="text-6xl font-bold pt-8 uppercase font-heading mb-8">
+        <h2 className="text-6xl font-medium pt-8 uppercase font-heading mb-8">
           Road Cycling
         </h2>
         <div>

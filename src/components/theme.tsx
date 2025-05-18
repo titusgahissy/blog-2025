@@ -24,8 +24,8 @@ export const ThemeSwitcher = () => {
   return (
     <>
       <div className="flex " aria-label="Toggle Theme" data-theme-toggle="">
-        {currentTheme === "dark" && <button className="cursor-pointer" onClick={() => handleThemeChange("light")}><CircleIcon fill="#fff" className="size-6" /></button>}
-        {currentTheme === "light" && <button className="cursor-pointer" onClick={() => handleThemeChange("dark")}><CircleIcon fill="#000" className="size-6" /></button>}
+        {currentTheme === "dark" && <button className="cursor-pointer border-none" onClick={() => handleThemeChange("light")}><CircleIcon fill="#fff" className="size-5 md:size-6" /></button>}
+        {currentTheme === "light" && <button className="cursor-pointer border-none" onClick={() => handleThemeChange("dark")}><CircleIcon fill="#000" className="size-5 md:size-6" /></button>}
       </div>
     </>
   )

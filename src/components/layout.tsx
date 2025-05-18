@@ -1,49 +1,5 @@
+
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { ThemeSwitcher } from "./theme";
-
-
-interface Link {
-  href: string
-  label: string
-  external?: boolean
-}
-
-const links: Link[] = [
-  { href: "/posts", label: "Journal" },
-  { href: "/about", label: "About" },
-  { href: "/travel", label: "Travel" },
-  { href: "/ventures", label: "Ventures" },
-  { href: "/library", label: "Library" }
-]
-
-
-export const Navbar = () => (
-  <div className="fixed top-0 left-0 right-0 z-50 pt-8 ">
-    <Container>
-      <nav className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
-            <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
-            <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
-          </Link>
-        </div>
-        <div className="flex items-center gap-5 uppercase text-xs tracking-wider font-semibold">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
-              <span>{link.label}</span>
-              {link.external && <span className="text-[0.6rem]">↗</span>}
-            </Link>
-          ))}
-          <div className="pl-2">
-            <ThemeSwitcher />
-          </div>
-        </div>
-      </nav>
-    </Container>
-  </div>
-);
 
 
 interface AuthorProps {
@@ -83,7 +39,7 @@ interface ContainerProps {
 }
 
 export const Container = ({ children, className }: ContainerProps) => (
-  <div className={cn("max-w-7xl mx-auto ", className)}>
+  <div className={cn("max-w-7xl mx-auto px-5 md:px-0", className)}>
     {children}
   </div>
 )
@@ -105,7 +61,7 @@ interface PageTitleProps {
 export const PageTitle = ({ children, prepend, className }: PageTitleProps) => (
   <div className={cn("flex flex-col gap-4", className)}>
     {prepend}
-    <h1 className="text-8xl font-heading uppercase font-bold">
+    <h1 className="text-7xl md:text-8xl font-heading uppercase font-medium tracking-tight">
       {children}
     </h1>
   </div>

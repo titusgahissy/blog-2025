@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <Container>
       <PageHeader>
-        <PageTitle>I'm always exploring<br />new ideas.</PageTitle>
+        <PageTitle>I'm always exploring<br />new ideas and concepts</PageTitle>
         <PageSubtitle>
           Here are some of the projects<br />I'm working on as a founder or investor.<br />
           None of these projects are client work.

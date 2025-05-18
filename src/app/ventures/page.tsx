@@ -43,8 +43,8 @@ const Projects = () => {
             </div>
             <div className="pt-4 text-foreground">
               {entry.metadata.url ? (
-                <Link href={entry.metadata.url} target="_blank" className="text-xl font-semibold  flex items-center gap-1">
-                  <span>{entry.metadata.url!.replace("https://", "")}</span>
+                <Link href={entry.metadata.url} target="_blank" className="text-lg font-semibold  flex items-center gap-1 uppercase tracking-wider">
+                  <span>Visit {entry.metadata.title}</span>
                   <span className="text-[0.8rem]">↗</span>
                 </Link>) : (
                 <span className="font-bold uppercase tracking-wide">{entry.metadata.release ?? "Coming soon"}</span>

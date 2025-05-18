@@ -29,18 +29,6 @@ const transition = {
   damping: 40,
 }
 
-const variants = {
-  visible: {
-    opacity: 1,
-    translateY: 0,
-    transition,
-  },
-  hidden: {
-    opacity: 0,
-    translateY: 10,
-    transition
-  },
-}
 
 const cross45 = {
   open: {

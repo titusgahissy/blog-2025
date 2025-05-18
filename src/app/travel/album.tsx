@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { cn } from "@/lib/utils";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import Image from "next/image";
@@ -41,7 +40,7 @@ export const Album = ({ images, album, title, description }: Props) => {
       <div className="text-xl md:text-2xl text-neutral-700 pb-4 md:pb-6">{description}</div>
       {open && (
         <div className="pb-24 md:pb-32">
-          <AnimatedGroup className="grid grid-cols-2 md:grid-cols-3 gap-1 " preset='slide'>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-1 ">
             {imagesArray.slice(0, limit).map((image) => (
               <div key={image} className="relative h-60 md:h-132">
                 <Image src={`${basePath}/${image}.jpeg`}
@@ -58,7 +57,7 @@ export const Album = ({ images, album, title, description }: Props) => {
               </div>
             ))}
 
-          </AnimatedGroup>
+          </div>
           {limit < imagesArray.length && (
             <div className="flex items-center justify-center">
               <button

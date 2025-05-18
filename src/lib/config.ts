@@ -5,7 +5,11 @@ export const siteConfig = {
   url: baseUrl,
   ogImage: `${baseUrl}/og.png`,
   description: 'Senior Solutions Architect & Entrepreneur',
+  keywords: ["design", "software architect", "solutions architect", "entrepreneur", "gahissy", "titus", "products"],
   links: {
     twitter: 'https://twitter.com/titusgahissy',
+    linkedin: 'https://www.linkedin.com/in/titusgahissy/',
+    github: 'https://github.com/titusgahissy',
+    instagram: 'https://www.instagram.com/titusgahissy/',
   },
 }

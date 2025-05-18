@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: siteConfig.name,
     description: siteConfig.description,
     metadataBase: new URL(baseUrl),
-    keywords: ["design", "interior", "interior design", "studio", "gahisy", "travel", "lifestyle", "inspiration"],
+    keywords: siteConfig.keywords,
     creator: siteConfig.name,
     publisher: siteConfig.name,
     robots: 'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large',

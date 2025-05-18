@@ -83,7 +83,7 @@ export const PageSubtitle = ({ children }: { children: React.ReactNode }) => (
 )
 
 export const Article = ({ children }: { children: React.ReactNode }) => (
-  <div className="prose-lg prose-h2:pt-8 !max-w-none prose-h2:m-0 prose-h2:pb-4 prose-headings:font-semibold  dark:prose-headings:text-white">
+  <div className="prose-lg prose-h2:pt-8 !max-w-none prose-h2:m-0 prose-h2:pb-4 prose-headings:font-bold  dark:prose-headings:text-white">
     <article className="font-normal text-black dark:text-white pt-4 ">
       {children}
     </article>

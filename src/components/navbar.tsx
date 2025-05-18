@@ -18,17 +18,30 @@ interface Link {
 
 const links: Link[] = [
   { href: "/posts", label: "Journal" },
-  { href: "/about", label: "About" },
   { href: "/travel", label: "Travel" },
   { href: "/ventures", label: "Ventures" },
-  { href: "/library", label: "Library" }
+  { href: "/library", label: "Library" },
+  { href: "/about", label: "About" },
 ]
 const transition = {
   type: 'spring',
-  stiffness: 500,
+  stiffness: 600,
   damping: 40,
+  duration: 0.25,
 }
 
+const modalVariants = {
+  visible: {
+    translateY: 0,
+    opacity: 1,
+    transition: { ...transition, when: "beforeChildren" },
+  },
+  hidden: {
+    translateY: 500,
+    opacity: 0,
+    transition: { ...transition, when: "afterChildren" },
+  }
+}
 
 const cross45 = {
   open: {
@@ -37,7 +50,7 @@ const cross45 = {
     transition
   },
   closed: {
-    rotate: 0,
+    rotate: 0, ...transition,
     translateY: -5,
     transition
   },
@@ -74,22 +87,22 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (open) {
-      setOpen(false)
+      toggle()
     }
   }, [pathname])
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 pt-8">
+      <div className="fixed top-0 left-0 right-0 z-40 py-8 backdrop-blur-sm">
         <Container>
-          <nav className="flex items-center justify-between">
+          <nav className="flex items-center justify-between z-50">
             <div className="flex items-center gap-4">
               <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
                 <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
                 <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
               </Link>
             </div>
-            <div className="items-center gap-5 uppercase text-sm tracking-wider font-semibold hidden md:flex">
+            <div className="items-center gap-5 uppercase text-sm tracking-wider font-bold hidden md:flex">
               {links.map((link) => (
                 <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
                   <span>{link.label}</span>
@@ -110,31 +123,14 @@ export const Navbar = () => {
             </div>
           </nav>
         </Container>
-
-
       </div>
       <div className="md:hidden">
         <AnimatePresence>
           {open && (
-            <motion.div
-              key="modal"
-              initial={{
-                opacity: 0,
-                translateY: 10,
-              }}
-              animate={{
-                opacity: 1,
-                translateY: 0,
-              }}
-              exit={{
-                opacity: 0,
-                translateY: 10,
-              }}
-              //style={{ display: open ? 'flex' : 'none' }}
-              className=" fixed !md:hidden top-30 left-0 right-0 bottom-0 bg-background z-10 px-6 flex flex-col justify-end pb-8" id="mobile-nav">
+            <motion.div variants={modalVariants} initial="hidden" animate="visible" exit="hidden" key="mobule-nav" className="fixed top-0 left-0 right-0 bottom-0 bg-background z-30 px-6 flex flex-col justify-end pb-8">
               <div className="flex flex-col gap-1 relative">
                 {links.map((link) => (
-                  <Link key={link.href} href={link.href} className="cursor-pointer flex items-center gap-1 font-heading font-black  text-6xl uppercase">
+                  <Link key={link.href} href={link.href} className="flex items-center gap-1 font-heading font-black  text-6xl uppercase">
                     <span>{link.label}</span>
                     {link.external && <span className="text-[0.6rem]">↗</span>}
                   </Link>

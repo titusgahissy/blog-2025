@@ -1,7 +1,7 @@
 import { PostSlug } from '@/app/posts/type'
 import { formatDate, getBlogPosts } from '@/app/posts/utils'
 import { baseUrl } from '@/app/sitemap'
-import { Article, PageTitle } from '@/components/layout'
+import { Article, Container, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageParams) {
 
 
 const BlogLink = (
-  <Link href="/posts" className="flex items-center font-medium justify-center text-sm gap-2 no-underline text-neutral-600">
+  <Link href="/posts" className="flex items-center font-medium justify-center text-base md:text-lg gap-2 no-underline text-neutral-600">
     <ArrowLeft className="size-4" />
     <span>Back to all posts</span>
   </Link>
@@ -104,21 +104,23 @@ export default async function Blog({ params }: PageParams) {
           }),
         }}
       />
-      <div className='text-center  pb-4'>
-        <PageTitle prepend={BlogLink}>
-          {post.metadata.title}
-        </PageTitle>
-        <div className="flex font-normak justify-center">
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)} / {post.metadata.category}
-          </p>
+      <Container>
+        <div className='text-center  pb-4'>
+          <PageTitle prepend={BlogLink}>
+            {post.metadata.title}
+          </PageTitle>
+          <div className="flex font-normak justify-center">
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              {formatDate(post.metadata.publishedAt)} / {post.metadata.category}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='container max-w-3xl mx-auto pb-16 font-medium'>
-        <Article>
-          <MDXRemote source={post.content} />
-        </Article>
-      </div>
+        <div className='container max-w-3xl mx-auto pb-16 font-medium'>
+          <Article>
+            <MDXRemote source={post.content} />
+          </Article>
+        </div>
+      </Container>
     </>
   )
 }

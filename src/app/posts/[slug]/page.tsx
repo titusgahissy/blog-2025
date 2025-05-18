@@ -1,14 +1,13 @@
 import { PostSlug } from '@/app/posts/type'
 import { formatDate, getBlogPosts } from '@/app/posts/utils'
-import { baseUrl } from '@/app/sitemap'
 import { Article, Container, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
+import { baseUrl } from '@/lib/config'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-
 
 export async function generateStaticParams() {
   const posts = getBlogPosts()

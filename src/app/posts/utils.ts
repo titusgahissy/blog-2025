@@ -49,6 +49,8 @@ function getMDXData(dir: string): Post[] {
       content,
       readingTime,
     }
+  }).sort((a, b) => {
+    return new Date(b.metadata.publishedAt!).getTime() - new Date(a.metadata.publishedAt!).getTime()
   })
 }
 

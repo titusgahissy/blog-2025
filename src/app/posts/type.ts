@@ -13,6 +13,7 @@ export type Post = {
     category?: string
     tags?: string
     role?: string
+    release?: string
   }
   slug: string
   content: string

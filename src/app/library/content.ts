@@ -114,5 +114,21 @@ export const books: Book[] = [
     author: 'Chris Voss, Tahl Raz',
     description: "Negotiating As If Your Life Depended On It.",
     image: '/img/books/never-split-the-difference.webp'
+  },
+  {
+    id: 'laws-of-ux',
+    title: 'Laws of UX',
+    author: 'Jon Yablonski',
+    description: "A collection of best practices that designers can consider when building user interfaces.",
+    image: '/img/resources/laws-of-ux.jpg',
+    url: 'https://lawsofux.com/'
+  },
+  {
+    id: 'humane-by-design',
+    title: 'Humane by Design',
+    author: 'Jon Yablonski ',
+    description: "Guidance for designing humane digital products and services focused around digital well-being.",
+    image: '/img/resources/humane-by-design.png',
+    url: 'https://humanebydesign.com'
   }
 ].sort((a, b) => a.title.localeCompare(b.title));

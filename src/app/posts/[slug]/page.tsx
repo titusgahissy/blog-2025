@@ -5,6 +5,7 @@ import { Article, Container, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -80,6 +81,8 @@ export default async function Blog({ params }: PageParams) {
     notFound()
   }
 
+  const { metadata, content } = post
+
   return (
     <>
       <script
@@ -89,13 +92,13 @@ export default async function Blog({ params }: PageParams) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            headline: metadata.title,
+            datePublished: metadata.publishedAt,
+            dateModified: metadata.publishedAt,
+            description: metadata.summary,
+            image: metadata.image
+              ? `${baseUrl}${metadata.image}`
+              : `/og?title=${encodeURIComponent(metadata.title)}`,
             url: `${baseUrl}/posts/${post.slug}`,
             author: {
               '@type': 'Person',
@@ -107,17 +110,22 @@ export default async function Blog({ params }: PageParams) {
       <Container>
         <div className='text-center  pb-4'>
           <PageTitle prepend={BlogLink}>
-            {post.metadata.title}
+            {metadata.title}
           </PageTitle>
           <div className="flex font-normak justify-center">
             <p className="text-lg text-neutral-600 dark:text-neutral-400">
-              {formatDate(post.metadata.publishedAt)} / {post.metadata.category}
+              {formatDate(metadata.publishedAt)} / {metadata.category}
             </p>
           </div>
         </div>
+        {metadata.image && (
+          <div className='container max-w-4xl mx-auto pb-16 font-medium'>
+            <Image src={metadata.image} alt={metadata.title} width={1000} height={1000} />
+          </div>
+        )}
         <div className='container max-w-3xl mx-auto pb-16 font-medium'>
           <Article>
-            <MDXRemote source={post.content} />
+            <MDXRemote source={content} />
           </Article>
         </div>
       </Container>

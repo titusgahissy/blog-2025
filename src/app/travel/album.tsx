@@ -62,7 +62,7 @@ export const Album = ({ images, album, title, description }: Props) => {
             <div className="flex items-center justify-center">
               <button
                 onClick={loadMore}
-                className="mt-8 col-span-full text-center text-2xl text-muted-foreground uppercase p-4 font-bold cursor-pointer hover:text-foreground transition-colors ease-linear duration-300" >
+                className="mt-8 col-span-full text-center text-sm md:text-2xl text-muted-foreground uppercase pt-4 md:p-4 font-bold cursor-pointer hover:text-foreground transition-colors ease-linear duration-300" >
                 Load next images in this album
               </button>
             </div>

@@ -34,8 +34,7 @@ export interface PageProps {
   params: Promise<{ slug?: string }>
 }
 
-export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
+export async function generateMetadata() {
 
   return {
     title: siteConfig.name,

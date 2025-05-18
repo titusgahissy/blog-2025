@@ -18,10 +18,6 @@ async function generateSiteMap(): Promise<string> {
   const pages = ['', '/posts', '/travel', '/ventures', '/library', '/about',]
   const lastModified = new Date(2025, 5, 18, 23, 37, 0);
 
-  interface QueryData {
-    articles: Array<Post>
-  }
-
   const posts = getBlogPosts()
 
   let links: Array<string> = []
@@ -33,7 +29,7 @@ async function generateSiteMap(): Promise<string> {
   ));
 
   // Get the last modified date for blog index
-  let bLastMod = new Date(posts[0]!.metadata.publishedAt);
+  const bLastMod = new Date(posts[0]!.metadata.publishedAt);
 
   // Add blog post links
   links = links.concat(posts.map((p: Post) =>

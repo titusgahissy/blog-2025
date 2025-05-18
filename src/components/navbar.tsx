@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Container } from "./layout";
 import { ThemeSwitcher } from "./theme";
@@ -72,24 +72,29 @@ const cross45inv = {
 
 export const Navbar = () => {
 
-  const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
-  const toggle = () => {
-    const nextOpen = !open
-    if (nextOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-    setOpen(nextOpen)
-  }
+  // Better toggle implementation with useCallback
+  const toggle = useCallback(() => {
+    setOpen(prevOpen => !prevOpen);
+  }, []);
 
+  // Handle body overflow in a separate effect
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : 'auto';
+    return () => {
+      document.body.style.overflow = 'auto'; // Cleanup on unmount
+    };
+  }, [open]);
+
+  // Close menu on pathname change
   useEffect(() => {
     if (open) {
-      toggle()
+      setOpen(false);
     }
-  }, [pathname])
+  }, [pathname, open]);
+
 
   return (
     <>

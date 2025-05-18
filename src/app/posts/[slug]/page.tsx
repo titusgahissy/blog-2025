@@ -5,7 +5,7 @@ import { Article, Container, PageTitle } from '@/components/layout'
 import { baseUrl } from '@/lib/config'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import Image, { ImageProps } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -133,13 +133,14 @@ export default async function Blog({ params }: PageParams) {
 }
 
 const components = {
-  img: (props: ImageProps) => (
+  img: (props: any) => (
     <Image
       sizes="100vw"
       width={1000}
       height={700}
+      alt="Post"
       style={{ width: '100% ', height: 'auto' }}
-      {...(props as ImageProps)}
+      {...(props)}
     />
   ),
 }

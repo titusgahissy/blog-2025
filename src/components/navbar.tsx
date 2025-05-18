@@ -1,10 +1,10 @@
 'use client'
 
-import { motion } from "framer-motion";
 import { MailIcon } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Container } from "./layout";
@@ -72,7 +72,6 @@ const cross45inv = {
 export const Navbar = () => {
 
   const [open, setOpen] = useState(false)
-  const router = useRouter()
   const pathname = usePathname()
 
   const toggle = () => {
@@ -102,7 +101,7 @@ export const Navbar = () => {
                 <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
               </Link>
             </div>
-            <div className="items-center gap-5 uppercase text-xs tracking-wider font-semibold hidden md:flex">
+            <div className="items-center gap-5 uppercase text-sm tracking-wider font-semibold hidden md:flex">
               {links.map((link) => (
                 <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
                   <span>{link.label}</span>
@@ -126,35 +125,51 @@ export const Navbar = () => {
 
 
       </div>
-      <motion.div
-        initial="hidden"
-        animate={open ? 'visible' : 'hidden'}
-        variants={variants}
-        //style={{ display: open ? 'flex' : 'none' }}
-        className=" fixed !md:hidden top-30 left-0 right-0 bottom-0 bg-background z-10 px-6 flex flex-col justify-end pb-8" id="mobile-nav">
-        <div className="flex flex-col gap-1 relative">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className="cursor-pointer flex items-center gap-1 font-heading font-black  text-6xl uppercase">
-              <span>{link.label}</span>
-              {link.external && <span className="text-[0.6rem]">↗</span>}
-            </Link>
-          ))}
-          <div className="flex items-center gap-4 pt-8">
-            <Link href="mailto:titus@gahissy.com" target="_blank">
-              <MailIcon className="size-7" strokeWidth={1.5} />
-            </Link>
-            <Link href="https://dub.sh/titus-linkedin" target="_blank">
-              <FaLinkedinIn className="size-7" strokeWidth={1.5} />
-            </Link>
-            <Link href="https://dub.sh/titus-github" target="_blank">
-              <FaGithub className="size-7" strokeWidth={1.5} />
-            </Link>
-            <Link href="https://dub.sh/titus-ig" target="_blank">
-              <FaInstagram className="size-7" strokeWidth={1.5} />
-            </Link>
-          </div>
-        </div>
-      </motion.div>
+      <div className="md:hidden">
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="modal"
+              initial={{
+                opacity: 0,
+                translateY: 10,
+              }}
+              animate={{
+                opacity: 1,
+                translateY: 0,
+              }}
+              exit={{
+                opacity: 0,
+                translateY: 10,
+              }}
+              //style={{ display: open ? 'flex' : 'none' }}
+              className=" fixed !md:hidden top-30 left-0 right-0 bottom-0 bg-background z-10 px-6 flex flex-col justify-end pb-8" id="mobile-nav">
+              <div className="flex flex-col gap-1 relative">
+                {links.map((link) => (
+                  <Link key={link.href} href={link.href} className="cursor-pointer flex items-center gap-1 font-heading font-black  text-6xl uppercase">
+                    <span>{link.label}</span>
+                    {link.external && <span className="text-[0.6rem]">↗</span>}
+                  </Link>
+                ))}
+                <div className="flex items-center gap-4 pt-8">
+                  <Link href="mailto:titus@gahissy.com" target="_blank">
+                    <MailIcon className="size-7" strokeWidth={1.5} />
+                  </Link>
+                  <Link href="https://dub.sh/titus-linkedin" target="_blank">
+                    <FaLinkedinIn className="size-7" strokeWidth={1.5} />
+                  </Link>
+                  <Link href="https://dub.sh/titus-github" target="_blank">
+                    <FaGithub className="size-7" strokeWidth={1.5} />
+                  </Link>
+                  <Link href="https://dub.sh/titus-ig" target="_blank">
+                    <FaInstagram className="size-7" strokeWidth={1.5} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }

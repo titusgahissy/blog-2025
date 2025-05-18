@@ -16,7 +16,7 @@ export default function Page() {
 }
 
 const Albums = () => (
-  <div className="pt-16 flex flex-col gap-4  divide-y divide-neutral-300 dark:divide-neutral-700">
+  <div className="pt-16 flex flex-col gap-4 md:gap-12  divide-y divide-neutral-300 dark:divide-neutral-700">
     <Album album="portugal" title="Portugal" description="Cartagena" images="1,2,3,4,5,6,7,8,9" />
     <Album album="laos" title="Laos" description="Laos" images="1,2,3,5,6,7" />
     <Album album="vietnam" title="Vietnam" description="Vietnam" images="1,2,3,4,5,6,7,8,9,11,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,32,31,33,34,35,36,37,38,39,40,43,42,41,44,46,47,48,49,50,52,53,54,55,56,57,59,60,61,62,63,64,65,67,69,71,73,75,77,78,79,80,81,82,83,85,86,87,88,89,90,91,92,93,94,96,97,98,99,100,101,102,104" />

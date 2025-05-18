@@ -33,7 +33,7 @@ const variants = {
   visible: {
     opacity: 1,
     translateY: 0,
-    transition
+    transition,
   },
   hidden: {
     opacity: 0,
@@ -92,43 +92,46 @@ export const Navbar = () => {
   }, [pathname])
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 pt-8">
-      <Container>
-        <nav className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
-              <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
-              <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
-            </Link>
-          </div>
-          <div className="items-center gap-5 uppercase text-xs tracking-wider font-semibold hidden md:flex">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
-                <span>{link.label}</span>
-                {link.external && <span className="text-[0.6rem]">↗</span>}
+    <>
+      <div className="fixed top-0 left-0 right-0 z-50 pt-8">
+        <Container>
+          <nav className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Link href="/" className="font-head font-bold text-lg text-[#7512F0] mr-4">
+                <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
+                <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
               </Link>
-            ))}
-          </div>
-          <div className="flex items-center gap-4">
-            <ThemeSwitcher />
-            <button data-collapse-toggle="navbar-default" type="button" onClick={toggle}
-              className="flex mr-1 flex-col w-7 h-7 justify-center text-sm md:hidden relative"
-              aria-controls="navbar-default" aria-expanded="false">
-              <motion.div initial="closed" animate={open ? 'open' : 'closed'} variants={cross45}
-                className="border-t w-7 border-foreground " />
-              <motion.div initial="closed" animate={open ? 'open' : 'closed'} variants={cross45inv}
-                className="border-t w-7 border-foreground " />
-            </button>
-          </div>
-        </nav>
-      </Container>
+            </div>
+            <div className="items-center gap-5 uppercase text-xs tracking-wider font-semibold hidden md:flex">
+              {links.map((link) => (
+                <Link key={link.href} href={link.href} target={link.external ? "_blank" : "_self"} className="flex items-center gap-1">
+                  <span>{link.label}</span>
+                  {link.external && <span className="text-[0.6rem]">↗</span>}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center gap-4">
+              <ThemeSwitcher />
+              <button data-collapse-toggle="navbar-default" type="button" onClick={toggle}
+                className="flex mr-1 flex-col w-7 h-7 justify-center text-sm md:hidden relative"
+                aria-controls="navbar-default" aria-expanded="false">
+                <motion.div initial="closed" animate={open ? 'open' : 'closed'} variants={cross45}
+                  className="border-t w-7 border-foreground " />
+                <motion.div initial="closed" animate={open ? 'open' : 'closed'} variants={cross45inv}
+                  className="border-t w-7 border-foreground " />
+              </button>
+            </div>
+          </nav>
+        </Container>
 
+
+      </div>
       <motion.div
-        initial="hidden lg:hiden"
+        initial="hidden"
         animate={open ? 'visible' : 'hidden'}
         variants={variants}
         //style={{ display: open ? 'flex' : 'none' }}
-        className="fixed md:hidden top-30 left-0 right-0 bottom-0 bg-background z-50 px-6 flex flex-col justify-end pb-8" id="mobile-nav">
+        className=" fixed !md:hidden top-30 left-0 right-0 bottom-0 bg-background z-10 px-6 flex flex-col justify-end pb-8" id="mobile-nav">
         <div className="flex flex-col gap-1 relative">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="cursor-pointer flex items-center gap-1 font-heading font-black  text-6xl uppercase">
@@ -152,6 +155,6 @@ export const Navbar = () => {
           </div>
         </div>
       </motion.div>
-    </div>
+    </>
   );
 }

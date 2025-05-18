@@ -19,9 +19,9 @@ export const LayoutFooter = () => {
         </div>
         <div className="flex items-center gap-5  justify-end">
           <Link href="mailto:titus@gahissy.com" target="_blank">Email</Link>
-          <Link href="https://www.linkedin.com/in/gahissy/" target="_blank">LinkedIn</Link>
-          <Link href="https://github.com/titusgahissy" target="_blank">Github</Link>
-          <Link href="https://www.instagram.com/titusgahissy" target="_blank">Instagram</Link>
+          <Link href="https://dub.sh/titus-linkedin" target="_blank">LinkedIn</Link>
+          <Link href="https://dub.sh/titus-github" target="_blank">Github</Link>
+          <Link href="https://dub.sh/titus-ig" target="_blank">Instagram</Link>
         </div>
       </Container>
     </footer>

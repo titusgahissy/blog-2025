@@ -28,12 +28,6 @@ export const Navbar = () => (
             <Image src="/img/logo.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 block dark:hidden" />
             <Image src="/img/logo-dark.svg" alt="Titus Gahissy" width={512} height={512} className="size-7 hidden dark:block" />
           </Link>
-          {/* <div className="flex items-center gap-5 font-medium uppercase text-xs tracking-wider">
-          <Link href="mailto:titus@gahissy.com">Email</Link>
-          <Link href="https://www.linkedin.com/in/gahissy/">LinkedIn</Link>
-          <Link href="https://github.com/titusgahissy">Github</Link>
-          <Link href="https://www.instagram.com/titusgahissy/">Instagram</Link>
-        </div> */}
         </div>
         <div className="flex items-center gap-5 uppercase text-xs tracking-wider font-semibold">
           {links.map((link) => (

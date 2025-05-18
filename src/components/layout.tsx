@@ -14,7 +14,7 @@ const links: Link[] = [
   { href: "/posts", label: "Journal" },
   { href: "/about", label: "About" },
   { href: "/travel", label: "Travel" },
-  { href: "/projects", label: "Projects" },
+  { href: "/ventures", label: "Ventures" },
   { href: "/library", label: "Library" }
 ]
 

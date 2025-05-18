@@ -12,6 +12,7 @@ export type Post = {
     url?: string
     category?: string
     tags?: string
+    role?: string
   }
   slug: string
   content: string

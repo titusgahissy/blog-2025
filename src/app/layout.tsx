@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { LayoutFooter } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { baseUrl, siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
@@ -46,6 +47,44 @@ const headingFont = localFont({
     }
   ],
 })*/
+
+export interface PageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  params: Promise<{ slug?: string }>
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+
+  return {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    metadataBase: new URL(baseUrl),
+    keywords: ["design", "interior", "interior design", "studio", "gahisy", "travel", "lifestyle", "inspiration"],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    robots: 'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large',
+    openGraph: {
+      title: siteConfig.name,
+      description: siteConfig.description,
+      url: baseUrl,
+      type: 'website',
+      emails: ['titus@gahissy.com'],
+      locale: 'en-US',
+      siteName: siteConfig.name,
+      countryName: 'Portugal',
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+
+      ],
+    },
+  };
+}
 
 export default function RootLayout({
   children,

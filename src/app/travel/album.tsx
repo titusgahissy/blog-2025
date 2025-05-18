@@ -37,7 +37,7 @@ export const Album = ({ images, album, title, description }: Props) => {
           <MinusIcon className={cn("size-10 md:size-16", open ? "" : "hidden")} strokeWidth={0.6} />
         </div>
       </button>
-      <div className="text-xl md:text-2xl text-neutral-700 pb-4 md:pb-6">{description}</div>
+      <div className="text-base font-medium md:text-2xl text-muted-foreground pb-4 md:pb-6">{description}</div>
       {open && (
         <div className="pb-24 md:pb-32">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-1 ">

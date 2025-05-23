@@ -2,6 +2,7 @@ import { PostSlug } from '@/app/posts/type'
 import { formatDate, getBlogPosts } from '@/app/posts/utils'
 import { Article, Container, PageTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
+import YouTube from '@/components/mdx/youtube'
 import { baseUrl } from '@/lib/config'
 import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -111,6 +112,11 @@ export default async function Blog({ params }: PageParams) {
           <PageTitle prepend={BlogLink}>
             {metadata.title}
           </PageTitle>
+          {metadata.summary && (
+            <div className='font-medium text-xl md:text-2xl py-2 text-neutral-600 dark:text-neutral-400'>
+              {metadata.summary}
+            </div>
+          )}
           <div className="flex font-normak justify-center">
             <p className="text-lg text-neutral-600 dark:text-neutral-400">
               {formatDate(metadata.publishedAt)} / {metadata.category}
@@ -133,6 +139,7 @@ export default async function Blog({ params }: PageParams) {
 }
 
 const components = {
+  YouTube,
   img: (props: any) => (
     <Image
       sizes="100vw"

@@ -88,12 +88,10 @@ export const Navbar = () => {
     };
   }, [open]);
 
-  // Close menu on pathname change
+  // Close menu on pathname change - FIXED: Removed 'open' from dependencies
   useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
-  }, [pathname, open]);
+    setOpen(false);
+  }, [pathname]);
 
 
   return (

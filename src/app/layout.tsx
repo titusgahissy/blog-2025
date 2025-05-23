@@ -20,9 +20,9 @@ const bodyFont = localFont({
     }
   ],
 })
-/*
-const headingFont = localFont({
-  variable: '--font-heading',
+
+const headingAltFont = localFont({
+  variable: '--font-heading-alt',
   src: [
     {
       path: '../../public/fonts/gt-walsheim-pro/medium.woff2',
@@ -31,7 +31,7 @@ const headingFont = localFont({
     }
   ],
 })
-*/
+
 const headingFont = Bebas_Neue( 
   {
     subsets: ['latin'],
@@ -84,7 +84,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", bodyFont.variable, headingFont.variable, bodyFont.className, "pt-28")}>
+      <body className={cn("antialiased", bodyFont.variable, headingFont.variable, headingAltFont.variable, bodyFont.className, "pt-28")}>
         <ThemeProvider>
           <Navbar />
           <main>

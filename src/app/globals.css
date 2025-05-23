@@ -46,6 +46,7 @@
   --font-sans: var(--font-primary);
   --font-mono: var(--font-primary);
   --font-heading: var(--font-heading);
+  --font-heading-alt: var(--font-heading-alt);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);

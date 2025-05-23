@@ -76,6 +76,15 @@ export const PageTitle = ({ children, prepend, className }: PageTitleProps) => (
   </div>
 )
 
+export const PostTitle = ({ children, prepend, className }: PageTitleProps) => (
+  <div className={cn("flex flex-col gap-4", className)}>
+    {prepend}
+    <h1 className="text-5xl md:text-7xl xl:text-7xl font-heading-alt text-center font-medium tracking-tighter">
+      {children}
+    </h1>
+  </div>
+)
+
 export const PageSubtitle = ({ children }: { children: React.ReactNode }) => (
   <div className="text-xl md:text-3xl py-2">
     {children}

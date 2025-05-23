@@ -1,6 +1,6 @@
 import { PostSlug } from '@/app/posts/type'
 import { formatDate, getBlogPosts } from '@/app/posts/utils'
-import { Article, Container, PageTitle } from '@/components/layout'
+import { Article, Container, PostTitle } from '@/components/layout'
 //import { CustomMDX } from '@/components/mdx'
 import YouTube from '@/components/mdx/youtube'
 import { baseUrl } from '@/lib/config'
@@ -109,9 +109,9 @@ export default async function Blog({ params }: PageParams) {
       />
       <Container>
         <div className='text-center  pb-4'>
-          <PageTitle prepend={BlogLink}>
+          <PostTitle prepend={BlogLink}>
             {metadata.title}
-          </PageTitle>
+          </PostTitle>
           {metadata.summary && (
             <div className='font-medium text-xl md:text-2xl py-2 text-neutral-600 dark:text-neutral-400'>
               {metadata.summary}

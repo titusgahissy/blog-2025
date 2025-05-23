@@ -117,7 +117,7 @@ interface Props {
 
 const InternalCard = ({ title, image, children }: Props) => (
   <div className="md:pt-16">
-    <div className="h-72 md:h-112  relative overflow-hidden rounded">
+    <div className="h-72 xl:h-112  relative overflow-hidden rounded">
       <Image src={image} alt={title} fill className="object-cover grayscale" />
     </div>
     <div className="prose md:prose-lg prose-p:my-2">

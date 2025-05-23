@@ -20,8 +20,19 @@ const bodyFont = localFont({
     }
   ],
 })
-
-const headingFont = Bebas_Neue(
+/*
+const headingFont = localFont({
+  variable: '--font-heading',
+  src: [
+    {
+      path: '../../public/fonts/gt-walsheim-pro/medium.woff2',
+      weight: '500',
+      style: 'normal',
+    }
+  ],
+})
+*/
+const headingFont = Bebas_Neue( 
   {
     subsets: ['latin'],
     weight: ['400'],

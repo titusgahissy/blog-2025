@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <Container>
       <PageHeader>
-        <PageTitle className="md:w-1/2">Documenting travels<br className="hidden md:block" />and street moments</PageTitle>
+        <PageTitle className="xl:w-1/2">Documenting travels&nbsp;<br className="hidden md:block" />and street moments</PageTitle>
         <PageSubtitle>
           A visual journal of places visited and moments <br className="hidden md:block" />that caught my eye as I move through the world.
         </PageSubtitle>

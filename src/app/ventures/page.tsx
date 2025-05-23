@@ -30,18 +30,18 @@ const Projects = () => {
 
           {index === 0 && <PlusIconDivider className="absolute -top-8" />}
 
-          <div className="relative h-60 md:h-96 overflow-hidden rounded-t md:rounded-t-lg">
+          <div className="relative h-60 md:h-110 xl:h-96 overflow-hidden rounded-t md:rounded-t-lg">
             <Image src={entry.metadata.image!} alt={entry.metadata.title} fill className="object-cover" />
           </div>
-          <div className="pt-8 md:pt-12 bg-muted px-6 md:px-12 rounded-b-lg pb-12 text-foreground">
+          <div className="pt-8 xl:pt-12 bg-muted px-6 xl:px-12 rounded-b-lg pb-12 text-foreground">
             <h2 className="text-lg md:text-xl uppercase font-bold tracking-wider flex items-center gap-2">
               <span>{entry.metadata.title}</span>
             </h2>
             <div className="pb-2 text-base md:text-lg font-medium">{entry.metadata.summary}</div>
-            <div className="md:pt-4 prose md:prose-lg prose-p:!my-2.5 md:h-72 text-foreground">
+            <div className="md:pt-4 prose-sm md:prose xl:prose-lg prose-p:!my-2.5 md:h-72 text-foreground">
               <MDXRemote source={entry.content} />
             </div>
-            <div className="pt-2 md:pt-4 text-foreground text-sm md:text-lg">
+            <div className="pt-2 md:pt-4 text-foreground text-sm xl:text-lg">
               {entry.metadata.url ? (
                 <Link href={entry.metadata.url} target="_blank" className=" font-semibold  flex items-center gap-1 uppercase tracking-wider">
                   <span>Visit {entry.metadata.title}</span>

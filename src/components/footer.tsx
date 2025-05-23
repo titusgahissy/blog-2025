@@ -14,7 +14,7 @@ export const LayoutFooter = () => {
   const isHome = pathname === '/'
 
   return (
-    <footer className={cn("pt-24 pb-8 text-xs md:text-sm ", isHome ? "fixed bottom-0 left-0 right-0 " : "")}>
+    <footer className={cn("pt-24 pb-4 md:pb-0 xl:pb-8 text-xs md:text-sm ", isHome ? "fixed bottom-0 left-0 right-0 " : "")}>
       <Container className="flex justify-between">
         <div className="">
           By Titus Gahissy, Lisbon, PT

@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'Titus Gahissy',
   url: baseUrl,
   ogImage: `${baseUrl}/og.png`,
-  description: "Hello, I'm Titus Gahissy. I explore not so boring ideas and challenge teams and founders to bring more value to users.",
+  description: "Hello, I'm Titus Gahissy. I explore not so boring ideas and challenge teams and founders to create valuable products.",
   keywords: ["design", "software architect", "solutions architect", "entrepreneur", "gahissy", "titus", "products"],
   links: {
     twitter: 'https://twitter.com/titusgahissy',

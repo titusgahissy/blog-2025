@@ -118,7 +118,7 @@ export default async function Blog({ params }: PageParams) {
             </div>
           )}
           <div className="flex font-normak justify-center">
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            <p className="md:text-lg text-neutral-600 dark:text-neutral-400">
               {formatDate(metadata.publishedAt)} / {metadata.category}
             </p>
           </div>

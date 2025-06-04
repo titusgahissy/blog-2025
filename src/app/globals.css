@@ -164,3 +164,7 @@ article.post ol,
 article.post p {
   @apply lg:mx-20;
 }
+
+article strong {
+  @apply text-primary font-bold;
+}

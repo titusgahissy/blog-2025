@@ -1,31 +1,30 @@
-import { PostSlug } from '@/app/posts/type'
-import { formatDate, getBlogPosts } from '@/app/posts/utils'
-import { Article, Container, PostTitle } from '@/components/layout'
+import { PostSlug } from "@/app/posts/type";
+import { formatDate, getBlogPosts } from "@/app/posts/utils";
+import { Article, Container, PostTitle } from "@/components/layout";
 //import { CustomMDX } from '@/components/mdx'
-import YouTube from '@/components/mdx/youtube'
-import { baseUrl } from '@/lib/config'
-import { ArrowLeft } from 'lucide-react'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import YouTube from "@/components/mdx/youtube";
+import { baseUrl } from "@/lib/config";
+import { ArrowLeft } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts()
+  const posts = getBlogPosts();
 
   return posts.map((post: PostSlug) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 export type PageParams = Readonly<{ params: Promise<{ slug: string }> }>;
 
-
 export async function generateMetadata({ params }: PageParams) {
-  const { slug } = await params
-  const post = getBlogPosts().find((post) => post.slug === slug)
+  const { slug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {
-    return
+    return;
   }
 
   const {
@@ -33,11 +32,11 @@ export async function generateMetadata({ params }: PageParams) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata
+  } = post.metadata;
 
   const ogImage = image
     ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -45,7 +44,7 @@ export async function generateMetadata({ params }: PageParams) {
     openGraph: {
       title,
       description,
-      type: 'article',
+      type: "article",
       publishedTime,
       url: `${baseUrl}/posts/${post.slug}`,
       images: [
@@ -55,33 +54,33 @@ export async function generateMetadata({ params }: PageParams) {
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
-
-
 const BlogLink = (
-  <Link href="/posts" className="flex items-center font-medium justify-center text-base md:text-lg gap-2 no-underline text-neutral-600">
+  <Link
+    href="/posts"
+    className="flex items-center font-medium justify-center text-base md:text-lg gap-2 no-underline text-neutral-600"
+  >
     <ArrowLeft className="size-4" />
     <span>Back to all posts</span>
   </Link>
-)
-
+);
 
 export default async function Blog({ params }: PageParams) {
-  const { slug } = await params
-  const post = getBlogPosts().find((post) => post.slug === slug)
+  const { slug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  const { metadata, content } = post
+  const { metadata, content } = post;
 
   return (
     <>
@@ -90,8 +89,8 @@ export default async function Blog({ params }: PageParams) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
             headline: metadata.title,
             datePublished: metadata.publishedAt,
             dateModified: metadata.publishedAt,
@@ -101,19 +100,17 @@ export default async function Blog({ params }: PageParams) {
               : `/og?title=${encodeURIComponent(metadata.title)}`,
             url: `${baseUrl}/posts/${post.slug}`,
             author: {
-              '@type': 'Person',
-              name: 'Titus Gahissy',
+              "@type": "Person",
+              name: "Titus Gahissy",
             },
           }),
         }}
       />
       <Container>
-        <div className='text-center  pb-4'>
-          <PostTitle prepend={BlogLink}>
-            {metadata.title}
-          </PostTitle>
+        <div className="text-center  pb-4">
+          <PostTitle prepend={BlogLink}>{metadata.title}</PostTitle>
           {metadata.summary && (
-            <div className='font-medium text-xl md:text-2xl py-2 text-neutral-600 dark:text-neutral-400'>
+            <div className="font-medium text-xl md:text-2xl py-2 text-neutral-600 dark:text-neutral-400">
               {metadata.summary}
             </div>
           )}
@@ -124,18 +121,23 @@ export default async function Blog({ params }: PageParams) {
           </div>
         </div>
         {metadata.image && (
-          <div className='container max-w-5xl mx-auto pt-4'>
-            <Image src={metadata.image} alt={metadata.title} width={1000} height={1000} />
+          <div className="container max-w-5xl mx-auto pt-4">
+            <Image
+              src={metadata.image}
+              alt={metadata.title}
+              width={1000}
+              height={1000}
+            />
           </div>
         )}
-        <div className='container max-w-3xl mx-auto pb-16 font-medium'>
+        <div className="container max-w-4xl mx-auto pb-16 font-medium">
           <Article>
             <MDXRemote source={content} components={components} />
           </Article>
         </div>
       </Container>
     </>
-  )
+  );
 }
 
 const components = {
@@ -146,8 +148,8 @@ const components = {
       width={1000}
       height={700}
       alt="Post"
-      style={{ width: '100% ', height: 'auto' }}
-      {...(props)}
+      style={{ width: "100% ", height: "auto" }}
+      {...props}
     />
   ),
-}
+};

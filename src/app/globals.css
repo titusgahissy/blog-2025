@@ -83,7 +83,8 @@
 }
 
 body {
-  font-family: var(--font-sans) ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: var(--font-sans) ui-sans-serif, system-ui, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 article hr {
@@ -135,10 +136,10 @@ article hr {
   }
 }
 
-.prose ol>li,
-.prose ul>li,
-.prose-lg ol>li,
-.prose-lg ul>li {
+.prose ol > li,
+.prose ul > li,
+.prose-lg ol > li,
+.prose-lg ul > li {
   @apply !my-1;
 }
 
@@ -152,4 +153,14 @@ article hr {
 
 .prose h3 {
   @apply text-lg tracking-tight;
+}
+
+article.post h1,
+article.post h2,
+article.post h3,
+article.post h4,
+article.post ul,
+article.post ol,
+article.post p {
+  @apply lg:mx-20;
 }

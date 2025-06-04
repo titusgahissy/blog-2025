@@ -6,6 +6,7 @@ export interface Book {
   description: string
   image: string
   url?: string
+  type?: string
 }
 
 
@@ -130,5 +131,14 @@ export const books: Book[] = [
     description: "Guidance for designing humane digital products and services focused around digital well-being.",
     image: '/img/resources/humane-by-design.png',
     url: 'https://humanebydesign.com'
+  },
+  {
+    id: 'the-art-of-choosing',
+    title: 'The Art of Choosing',
+    author: 'Sheena Iyengar',
+    description: "A book about how to make better choices in life.",
+    image: '/img/books/the-art-of-choosing.jpg',
+    url: 'https://amzn.to/43HiH1i',
+    type: 'book'
   }
 ].sort((a, b) => a.title.localeCompare(b.title));
